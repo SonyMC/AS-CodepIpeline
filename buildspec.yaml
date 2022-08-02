@@ -8,7 +8,7 @@ phases:
     - echo Logging in to Amazon ECR...
     - aws --version
 #   Login to either ECR repository or Docker Repository 172172108913
-    - aws ecr get-login-password --region us-east-1 --no-include-email | sed 's|https://||' | docker login --username AWS --password-stdin 172172108913.dkr.ecr.us-east-1.amazonaws.com
+    - val $(aws ecr get-login-password --region us-east-1 --no-include-email | sed 's|https://||' | docker login --username AWS --password-stdin 172172108913.dkr.ecr.us-east-1.amazonaws.com)
 #    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
 #    - aws $(ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
 #    - aws $(ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
